@@ -18,6 +18,8 @@ def create_main_branch(configuration):
         storage_namespace="local://example-bucket/repos/example-repo",
         default_branch="main",
     )
+    client.repositories_api.create_repository(repo)
+    print("Created repository example-repo")
 
 
 if __name__ == "__main__":

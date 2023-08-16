@@ -34,3 +34,4 @@ def all_dbt_assets(
     lakefs._commit(
         branch, msg=commit_msg, metadata={"assets": ", ".join(materialized_assets)}
     )
+    lakefs._merge_branch(branch)

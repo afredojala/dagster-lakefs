@@ -49,10 +49,12 @@ class LakeFSResource(ConfigurableResource):
             ),
         )
 
-    def _merge_branch(self, branch):
+    def _merge_branch(self, branch: str):
         client = self._get_lakefs_client()
         client.refs_api.merge_into_branch(
-            repository=self.repo, source_ref=branch, destination_branch="main"
+            repository=self.repo,
+            source_ref=branch,
+            destination_branch="main",
         )
 
     def _check_if_branch_exists(self, branch: str) -> bool:
@@ -94,6 +96,7 @@ class LakeFSIOManager(ConfigurableIOManager, UPathIOManager):
 
         commit_msg = f"Committing {context.step_key} to lakefs"
         self.lakefs._commit(branch, commit_msg)
+
         self.lakefs._merge_branch(branch)
 
         context.log.info("comitted data to %s", branch)
