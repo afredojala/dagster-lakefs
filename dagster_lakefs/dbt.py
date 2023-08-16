@@ -28,9 +28,8 @@ def all_dbt_assets(
     for run_result in run_results["results"]:
         if run_result["status"] == "success":
             materialized_assets.add(run_result["unique_id"])
-    context.log.info(run_results)
+
     commit_msg = "Committing dbt assets to lakefs"
-    context.log.info(materialized_assets)
     lakefs._commit(
         branch, msg=commit_msg, metadata={"assets": ", ".join(materialized_assets)}
     )

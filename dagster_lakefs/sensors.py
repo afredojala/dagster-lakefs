@@ -1,17 +1,17 @@
 from dagster import (
     SkipReason,
-    job,
     run_status_sensor,
     DagsterRunStatus,
     RunStatusSensorContext,
-    op,
-    RunRequest,
+    DefaultSensorStatus,
 )
 
 from .resources import LakeFSResource
 
 
-@run_status_sensor(run_status=DagsterRunStatus.SUCCESS)
+@run_status_sensor(
+    run_status=DagsterRunStatus.SUCCESS, default_status=DefaultSensorStatus.RUNNING
+)
 def lakefs_branch_delete(context: RunStatusSensorContext, lakefs: LakeFSResource):
     """
     This sensor will commit the output of the job to lakefs

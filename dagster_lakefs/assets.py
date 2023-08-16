@@ -25,8 +25,3 @@ def create_fake_data(n: int) -> pl.DataFrame:
 def fake_data(context: OpExecutionContext) -> pl.DataFrame:
     context.log.info(context.run_id)
     return create_fake_data(1000)
-
-
-@asset
-def group_by_job(context: OpExecutionContext, fake_data: pl.DataFrame) -> pl.DataFrame:
-    return create_fake_data(1000).groupby("job").agg(pl.sum("salary"))
