@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "dagster-lakefs"
+version = "0.1.0"
+description = ""
+authors = ["Andreas Fred-Ojala <Andreas.fred-ojala@knowit.se>"]
+readme = "README.md"
+packages = [{include = "dagster_lakefs"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+dagster = "^1.4.5"
+dagster-webserver = "^1.4.5"
+lakefs-client = "^0.106.0"
+polars = "^0.18.14"
+duckdb = "^0.8.1"
+faker = "^19.3.0"
+s3fs = "^2023.6.0"
+dbt-duckdb = "^1.6.0"
+dagster-dbt = "^0.20.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

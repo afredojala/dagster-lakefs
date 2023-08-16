@@ -1,0 +1,17 @@
+duckdb_dbt:
+  outputs:
+    dev:
+      type: duckdb
+      path: ":memory:"
+      extensions:
+        - httpfs
+        - parquet
+      settings:
+        s3_access_key_id: "{{ env_var('LAKEFS_ACCESS_KEY') }}"
+        s3_secret_access_key: "{{ env_var('LAKEFS_SECRET_KEY') }}"
+        s3_endpoint: "localhost:8000"
+        s3_use_ssl: false
+        s3_region: "us-east-1"
+        s3_url_style: "path"
+
+  target: dev

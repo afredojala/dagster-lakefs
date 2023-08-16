@@ -1,0 +1,6 @@
+sources:
+  - name: faker
+    meta: 
+      external_location: "s3://example-repo/{{ var('branch') }}/faker/{name}.parquet"
+    tables:
+      - name: fake_data
