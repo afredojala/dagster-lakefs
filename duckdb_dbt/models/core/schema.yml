@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: test_fact
+    description: "Test fact"
+    columns:
+      - name: job
+        tests:
+          - not_null
+          - unique
+
+      - name: avg_salary
+        tests:
+          - not_null
+  - name: fail_fact
+    description: "Fact that will fail, and then the branch will still be up"
+    columns:
+      - name: start_date
+        tests:
+          - not_null
+          - unique
+      - name: count
+        description: "This test should fail"
+        tests:
+          - not_null
+          - unique
+
+
