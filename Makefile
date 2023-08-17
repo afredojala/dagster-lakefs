@@ -27,7 +27,7 @@ lakefs-setup:
 
 # Starts dagster development server
 dagster-start:
-	@poetry run dagster dev -m dagster_lakefs
+	@poetry run dagster dev
 
 # Starts all servers again
 start:

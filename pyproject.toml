@@ -18,6 +18,9 @@ s3fs = "^2023.6.0"
 dbt-duckdb = "^1.6.0"
 dagster-dbt = "^0.20.5"
 
+[tool.dagster]
+module_name = "dagster_lakefs"
+
 
 [build-system]
 requires = ["poetry-core"]
